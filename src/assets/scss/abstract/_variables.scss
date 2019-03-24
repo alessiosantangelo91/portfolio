@@ -1,0 +1,50 @@
+:root {
+  --fontSize:     10px;
+  --fontPrimaryRegular:   'AOMonoRegular';
+  --fontPrimaryBold:      'AOMonoRegular';
+  --fontSecondaryBold:    'Poppins-Medium';
+  --fontSecondaryRegular: 'Poppins-Regular';
+
+  --lineHeight:   150%;
+
+  --margin:       2.5rem;
+  --padding:      4rem;
+
+  --imageShape:   40rem;
+}
+
+$colors: (
+  background: #1a1a1a,
+  intro:      transparent,
+  heading:    #4A4A4A,
+  cite:       #404040,
+  text:       #666565,
+  nav:        #666565,
+  loud:       #edc27b,
+  // gradient:   linear-gradient(to left, #EA8372, #FFB88C),
+  gradient: linear-gradient(to left, darken(#edc27b, 20%), #edc27b),
+);
+
+$fonts: (
+  // 'SpaceGrotesk-Bold',
+  // 'SpaceGrotesk-Medium',
+  // 'SpaceGrotesk-Regular',
+  // 'SpaceGrotesk-Light',
+  //
+  // 'PT_Root_UI_Regular',
+  // 'PT_Root_UI_Bold',
+  // 'PT_Root_UI_Light',
+
+  'Butler',
+  'Butler-Medium',
+
+  'Poppins-Medium',
+  'Poppins-Regular',
+
+  'AOMonoBold',
+  'AOMonoRegular',
+);
+
+@function color($color) {
+  @return map-get($colors, $color);
+}

@@ -1,0 +1,81 @@
+.photo {
+  margin: 0;
+  padding: var(--padding) 0;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  transition: background 0.25s 0.1s;
+
+  @include fadeIn;
+}
+
+.photo__action {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  opacity: 0;
+  height: 50px;
+  width: auto;
+
+  transform: translate3d(-20px, -50%, 0);
+  transition: transform 0.25s cubic-bezier(0.7, 0, 0.7, 1) 0.1s, opacity 0.25s linear 0.1s;
+}
+
+.photo:hover .photoaction {
+  transform: translate3d(0, -50%, 0);
+  opacity: 0.2;
+}
+
+.photo__clip,
+.photo__img {
+  width: 400px;
+}
+
+.photo__img {
+  height: auto;
+  max-width: 100%;
+}
+
+.photo__clip {
+  position: relative;
+  overflow: hidden;
+  z-index: 10;
+  margin-right: auto;
+
+  clip-path: polygon(0 0, 380px 0, 380px 100%, 0% 100%);
+
+  transform: translate3d(0, 0, 0);
+  transition: transform 0.3s cubic-bezier(0.8, 0, 0.7, 1), clip-path 0.3s cubic-bezier(0.8, 0, 0.7, 1);
+}
+
+.photo:hover .photo__clip {
+  clip-path: polygon(20px 0, 100% 0, 100% 100%, 20px 100%);
+}
+
+.photo__title,
+.photo__clip__title {
+  font-size: 3.2rem;
+  display: block;
+  width: auto;
+  margin: 0;
+  white-space: nowrap;
+  font-family: var(--fontSecondaryBold);
+
+  position: absolute;
+  top: 50%;
+  left: 280px;
+  transform: translate3d(0, -50%, 0);
+}
+
+.photo__title {
+  color: color(heading);
+  transition: transform 0.3s cubic-bezier(0.8, 0, 0.7, 1);
+}
+
+.photo__clip__title {
+  color: color(background);
+}

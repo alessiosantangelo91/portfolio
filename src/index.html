@@ -1,0 +1,120 @@
+<html>
+  <head>
+    <link href="/assets/icomoon/style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <main id="main">
+      <header>
+        <nav class="nav">
+          <div class="progress" id="scrollProgress"></div>
+          <div class="container container--medium">
+            <ul class="nav__list">
+              <li class="nav__item">
+                <a href="#" class="nav__link">About</a>
+              </li>
+              <li class="nav__item">
+                <a href="#" class="nav__link">Contacts</a>
+              </li>
+              <li class="nav__item">
+                <a href="#" class="nav__link">C.V.</a>
+              </li>
+              <!-- <li class="nav__item">
+                <a href="http://lnkd.in/dHEMZhH" class="nav__link nav__link--circle" target="_blank">
+                  <i class="icon-linkedin nav__icon"></i>
+                </a>
+              </li> -->
+            </ul>
+          </div>
+        </nav>
+      </header>
+
+      <section class="intro">
+        <div class="container container--medium intro__container">
+          <h1 class="intro__name fade-in"><span>A</span>lessio <span>S</span>antangelo</h1>
+          <span class="intro__role fade-in">frontend developer</span>
+          <canvas class="intro__wave" id="IntroWave"></canvas>
+        </div>
+      </section>
+
+      <section>
+        <div class="container container--medium">
+
+          <pre>
+            <cite class="fade-in">He's one of the most talented developer I've ever seen. A real prodigy.</cite>
+            <span class="fade-in">&mdash; My mom</span>
+          </pre>
+
+          <h2 class="reveal">About</h2>
+          <div class="about__wrapper">
+            <p class="fade-in"><img src="/assets/images/about.jpg"></p>
+            <p class="fade-in">Hi, I'm Alessio Santangelo, an italian frontend developer based in Milan.<br>Currently, I'm working with folks at <a href="http://www.prima.it" target="_blank">Prima.it</a>.</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container container--small">
+          <h2 class="reveal">Works</h2>
+        </div>
+
+        <figure class="photo fade-in">
+          <div class="container container--medium">
+            <div class="photo__clip">
+              <h4 class="photo__clip__title">Sergio Tacchini</h4>
+              <img src="/assets/images/sergio_tacchini.jpg" class="photo__img">
+            </div>
+            <h4 class="photo__title">Sergio Tacchini</h4>
+            <img src="/assets/images/arrow-right.svg" class="photo__action">
+          </div>
+        </figure>
+
+        <figure class="photo fade-in">
+          <div class="container container--medium">
+            <div class="photo__clip">
+              <h4 class="photo__clip__title">Aperiway</h4>
+              <img src="/assets/images/aperiway.jpg" class="photo__img">
+            </div>
+            <h4 class="photo__title">Aperiway</h4>
+            <img src="/assets/images/arrow-right.svg" class="photo__action">
+          </div>
+        </figure>
+
+        <figure class="photo fade-in">
+          <div class="container container--medium">
+            <div class="photo__clip">
+              <h4 class="photo__clip__title">Ricetta</h4>
+              <img src="/assets/images/ricetta.jpg" class="photo__img">
+            </div>
+            <h4 class="photo__title">Ricetta</h4>
+            <img src="/assets/images/arrow-right.svg" class="photo__action">
+          </div>
+        </figure>
+
+      </section>
+
+      <section>
+        <div class="container container--small">
+          <h2 class="reveal">Contacts</h2>
+          <form class="form">
+            <label class="form__label fade-in" for="email">Email:</label>
+            <input class="form__input fade-in" type="email" placeholder="Enter your email address" id="email" name="email">
+            <label class="form__label fade-in" for="name">Name:</label>
+            <input class="form__input fade-in" type="text" placeholder="Enter your name" id="name" name="name">
+            <label class="form__label fade-in" for="message">Message:</label>
+            <textarea class="form__textarea fade-in" placeholder="Enter your message for me" id="message" name="message"></textarea>
+          </form>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="footer">
+      <div class="container container--large footer__container">
+        <p class="footer__copyright">&copy; Alessio Santangelo &mdash; 2017</p>
+        <p class="footer__copyright">Photos from <a href="https://unsplash.com/">Unsplash</a></p>
+      </div>
+    </footer>
+
+    <script src="/assets/app.bundle.js"></script>
+  </body>
+</html>

@@ -1,0 +1,69 @@
+.intro {
+  width: 100%;
+  height: 70vh;
+  padding: 0;
+  padding-top: 15vh;
+  margin: 0;
+}
+
+.intro__container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+}
+
+.intro__name,
+.intro__role {
+  text-align: left;
+  width: 25.4rem;
+}
+
+.intro__name {
+  margin: 0;
+  letter-spacing: 0.4rem;
+  font-size: 1.6rem;
+  background-image: color(gradient);
+  background-repeat: repeat;
+  background-position: 0 0;
+  background-size: 100%;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  animation: introNameColor 0.5s infinite;
+
+  @include fadeIn;
+
+  @keyframes introNameColor {
+    from { background-position: 0 0; }
+    to { background-position: 0 100%; }
+  }
+
+  &.is-animated {
+    opacity: 1;
+    transform: translate3d(0,0,0);
+  }
+}
+
+.intro__role {
+  display: block;
+  margin: 0;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+
+  @include fadeIn;
+
+  &.is-animated {
+    opacity: 1;
+    transform: translate3d(0,0,0);
+  }
+}
+
+.intro__wave {
+  width: 50vw;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
