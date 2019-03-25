@@ -23,9 +23,10 @@
 
   transform: translate3d(-20px, -50%, 0);
   transition: transform 0.25s cubic-bezier(0.7, 0, 0.7, 1) 0.1s, opacity 0.25s linear 0.1s;
+  filter: invert(1);
 }
 
-.photo:hover .photoaction {
+.photo:hover .photo__action {
   transform: translate3d(0, -50%, 0);
   opacity: 0.2;
 }
@@ -50,10 +51,27 @@
 
   transform: translate3d(0, 0, 0);
   transition: transform 0.3s cubic-bezier(0.8, 0, 0.7, 1), clip-path 0.3s cubic-bezier(0.8, 0, 0.7, 1);
+
+  &:after {
+    content: '';
+    background: linear-gradient(90deg, darken(color(loud), 20%), color(loud));
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    opacity: 0.5;
+    transition: opacity 0.5s ease-out;
+  }
 }
 
 .photo:hover .photo__clip {
   clip-path: polygon(20px 0, 100% 0, 100% 100%, 20px 100%);
+
+  &:after {
+    opacity: 0;
+  }
 }
 
 .photo__title,
@@ -77,5 +95,5 @@
 }
 
 .photo__clip__title {
-  color: color(background);
+  color: #fff;
 }
