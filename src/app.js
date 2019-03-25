@@ -1,96 +1,122 @@
-import styles from './assets/scss/app.scss';
-import { onDOMReady } from './utils.js'
-const SineWaves = require('sine-waves')
+const AppStyles = require('./assets/scss/app.scss')
+const Utils     = require('./lib/utils.js')
+const Anime     = require('animejs').default;
 
-console.log(SineWaves)
+Utils.htmlTextPrepare()
 
-onDOMReady(() => {
-
-  window.addEventListener('scroll', event => {
-    const scrollTop = document.body.scrollTop
-    const windowHeight = window.innerHeight
-    const documentHeight = document.documentElement.clientHeight
-    const scrollPercent = Math.round(scrollTop / documentHeight * 100)
-    document.getElementById('scrollProgress').style.width = scrollPercent + '%';
-  });
-
-  const letters = document.querySelectorAll('.intro__name span')
-  letters.forEach(element => {
-    element.setAttribute('data-friction', Math.floor(Math.random() * 4) + 1)
+const animateIntro = () => {
+  Anime.timeline({ loop: false })
+  // Intro
+  .add({
+    targets:    '.intro__role span',
+    translateX: [40,0],
+    translateZ: 0,
+    opacity:    [0,1],
+    easing:     'easeOutExpo',
+    duration:   1200,
+    delay: (el, i) => 500 + 30 * i
   })
-
-  window.addEventListener('scroll', () => {
-    letters.forEach(element => {
-      const scrollTop = document.body.scrollTop
-      const friction = element.getAttribute('data-friction')
-      const amount = scrollTop * (-friction) * 0.2
-      element.style.transform = `translate3d(0, ${amount}px, 0)`
-      element.style.transitionDelay = `0s`
-    })
+  .add({
+    targets:    '.intro__name__line',
+    opacity:    0.2,
+    scaleX:     [ 0, 1 ],
+    easing:     'easeInOutExpo',
+    offset:     '+=1200',
+    duration:   700
   })
-
-  const wave = document.getElementById('IntroWave')
-  const waveInstance = new SineWaves({
-    el: wave,
-    speed: 4,
-    rotate: 0,
-    ease: 'SineInOut',
-    waveWidth: wave.innerWidth,
-    waves: [
-      {
-        timeModifier: 4,
-        lineWidth: 1,
-        amplitude: -25,
-        wavelength: 25
-      },
-      {
-        timeModifier: 3,
-        lineWidth: 2,
-        amplitude: -50,
-        wavelength: 50
-      },
-      {
-        timeModifier: 3,
-        lineWidth: 1,
-        amplitude: -100,
-        wavelength: 100
-      },
-    ],
-    resizeEvent: function() {
-      const primaryColor = alpha => `rgba(225, 153, 33, ${alpha})`
-      const secondaryColor = alpha => `rgba(237, 194, 123, ${alpha})`
-
-      this.waves.forEach((item, index) => {
-        const gradient = this.ctx.createLinearGradient(0, 0, this.width, 0)
-        gradient.addColorStop(0, 'rgba(0, 0, 0, 0.1)')
-        gradient.addColorStop(0.25, secondaryColor((index) / 10))
-        gradient.addColorStop(0.5, primaryColor((index + 1) / 10))
-        gradient.addColorStop(0.25, secondaryColor((index) / 10))
-        gradient.addColorStop(1, 'rgba(0, 0, 0, 0.1)')
-        item.strokeStyle = gradient;
-      })
-    }
+  .add({
+    targets:    '.intro__name__line',
+    duration:   600,
+    easing:     'easeOutExpo',
+    translateY: (e, i, l) => (-3 + 3*2*i) + 'rem'
   })
-})
-
-const headings = document.querySelectorAll('.reveal, .fade-in, .intro');
-const config = {
-  rootMargin: '-50px 0px',
-  threshold: 0.01
-};
-
-// The observer for the images on the page
-let observer = new IntersectionObserver(onIntersection, config);
-
-headings.forEach(heading => observer.observe(heading));
-
-function onIntersection(entries) {
-  // Loop through the entries
-  entries.forEach(entry => {
-    // Are we in viewport?
-    if (entry.intersectionRatio > 0) {
-      observer.unobserve(entry.target);
-      entry.target.classList.add('is-animated')
-    }
-  });
+  .add({
+    targets:    '.intro__name__word--firstname',
+    opacity:    [ 0, 1 ],
+    translateX: [ '0.5rem', 0 ],
+    easing:     'easeOutExpo',
+    duration:   600,
+    offset:     '-=300'
+  })
+  .add({
+    targets:    '.intro__name__word--lastname',
+    opacity:    [ 0, 1 ],
+    translateX: [ '-0.5rem', 0 ],
+    easing:     'easeOutExpo',
+    duration:   600,
+    offset:     '-=600'
+  })
+  .add({
+    targets:    '.intro__name__line--top',
+    scaleX:     0,
+    easing:     'linear',
+    offset:     '+=600',
+    duration:   300,
+  })
+  .add({
+    targets:    '.intro__name__line--bottom',
+    scaleX:     0,
+    easing:     'linear',
+    offset:     '+=300',
+    duration:   300,
+  })
+  // .add({
+  //   targets: '.intro__name__word',
+  //   translateX: [
+  //     '-0.1rem',
+  //     '-0.2rem',
+  //     '-0.4rem',
+  //     '0.4rem',
+  //     '-0.4rem',
+  //     '0.4rem',
+  //     '-0.4rem',
+  //     '0.2rem',
+  //     '-0.1rem',
+  //     '0'
+  //   ],
+  //   easing: 'easeOutExpo',
+  //   offset: '+=300',
+  //   duration: 300,
+  // })
+  .add({
+    targets:    '.intro__name__word',
+    translateY:  ['4.4rem', '3.8rem', '4.2rem', '3.9rem', '4.1rem', '4rem'],
+    easing:     'easeOutExpo',
+    offset:     '+=600',
+    duration:   600,
+  })
+  // Menu
+  .add({
+    targets:    '.nav__link span',
+    translateX: [ 40, 0 ],
+    translateZ: 0,
+    opacity:    [ 0, 1 ],
+    easing:     'easeOutExpo',
+    duration:   1200,
+    offset:     '+=400',
+    delay: (el, i) => 500 + 30 * i
+  })
 }
+
+const animateScrollProgress = () => {
+  const scrollTop = document.body.scrollTop
+  const windowHeight = window.innerHeight
+  const documentHeight = document.documentElement.clientHeight
+  const scrollPercent = Math.round(scrollTop / documentHeight * 100) / 100
+  console.log('scrollPercent', scrollPercent)
+  Anime.timeline({ loop: false }).add({
+    targets:  '#scrollProgress',
+    easing:   'linear',
+    scaleX:   scrollPercent,
+    duration: 50
+  })
+}
+
+
+Utils.onDOMReady(() => {
+
+  Utils.runObserver()
+
+  animateIntro()
+  window.addEventListener('scroll', () => animateScrollProgress())
+})

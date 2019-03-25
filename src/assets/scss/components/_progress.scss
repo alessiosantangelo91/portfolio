@@ -2,13 +2,11 @@
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-
   height: 0.2vh;
-  width: 0;
-
+  width: 100%;
   background: color(gradient);
   z-index: 100;
-
   transition: width 0.1s;
+  transform: scaleX(0);
+  transform-origin: 0 0;
 }
