@@ -21,7 +21,6 @@ const animateIntro = () => {
     opacity:    0.2,
     scaleX:     [ 0, 1 ],
     easing:     'easeInOutExpo',
-    offset:     '+=1200',
     duration:   700
   })
   .add({
@@ -36,55 +35,49 @@ const animateIntro = () => {
     translateX: [ '0.5rem', 0 ],
     easing:     'easeOutExpo',
     duration:   600,
-    offset:     '-=300'
-  })
+  }, '-=300')
   .add({
     targets:    '.intro__name__word--lastname',
     opacity:    [ 0, 1 ],
     translateX: [ '-0.5rem', 0 ],
     easing:     'easeOutExpo',
     duration:   600,
-    offset:     '-=600'
-  })
+  }, '-=600')
   .add({
     targets:    '.intro__name__line--top',
     scaleX:     0,
     easing:     'linear',
-    offset:     '+=600',
     duration:   300,
-  })
+  }, '+=600')
   .add({
     targets:    '.intro__name__line--bottom',
     scaleX:     0,
     easing:     'linear',
-    offset:     '+=300',
     duration:   300,
-  })
-  // .add({
-  //   targets: '.intro__name__word',
-  //   translateX: [
-  //     '-0.1rem',
-  //     '-0.2rem',
-  //     '-0.4rem',
-  //     '0.4rem',
-  //     '-0.4rem',
-  //     '0.4rem',
-  //     '-0.4rem',
-  //     '0.2rem',
-  //     '-0.1rem',
-  //     '0'
-  //   ],
-  //   easing: 'easeOutExpo',
-  //   offset: '+=300',
-  //   duration: 300,
-  // })
+  }, '+=300')
+  .add({
+    targets: '.intro__name__word',
+    translateX: [
+      '-0.1rem',
+      '-0.2rem',
+      '-0.4rem',
+      '0.4rem',
+      '-0.4rem',
+      '0.4rem',
+      '-0.4rem',
+      '0.2rem',
+      '-0.1rem',
+      '0'
+    ],
+    easing: 'easeOutExpo',
+    duration: 300,
+  }, '+=300')
   .add({
     targets:    '.intro__name__word',
     translateY:  ['4.4rem', '3.8rem', '4.2rem', '3.9rem', '4.1rem', '4rem'],
     easing:     'easeOutExpo',
-    offset:     '+=600',
     duration:   600,
-  })
+  }, '+=600')
   // Menu
   .add({
     targets:    '.nav__link span',
@@ -93,9 +86,8 @@ const animateIntro = () => {
     opacity:    [ 0, 1 ],
     easing:     'easeOutExpo',
     duration:   1200,
-    offset:     '+=400',
     delay: (el, i) => 500 + 30 * i
-  })
+  }, '+=400')
 }
 
 const animateScrollProgress = () => {
