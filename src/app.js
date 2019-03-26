@@ -27,7 +27,7 @@ const animateIntro = () => {
     targets:    '.intro__name__line',
     duration:   600,
     easing:     'easeOutExpo',
-    translateY: (e, i, l) => (-3 + 3*2*i) + 'rem'
+    translateY: (e, i, l) => (-3 + 3 * 2 * i) + 'rem'
   })
   .add({
     targets:    '.intro__name__word--firstname',
@@ -70,14 +70,14 @@ const animateIntro = () => {
       '0'
     ],
     easing: 'easeOutExpo',
-    duration: 300,
-  }, '+=300')
+    duration: 600,
+  })
   .add({
     targets:    '.intro__name__word',
     translateY:  ['4.4rem', '3.8rem', '4.2rem', '3.9rem', '4.1rem', '4rem'],
     easing:     'easeOutExpo',
     duration:   600,
-  }, '+=600')
+  }, '+=1200')
   // Menu
   .add({
     targets:    '.nav__link span',
