@@ -7,7 +7,7 @@
       <header>
         <nav class="nav">
           <div class="progress" id="scrollProgress"></div>
-          <div class="container container--medium">
+          <div class="container container--large">
             <ul class="nav__list">
               <li class="nav__item">
                 <a href="#" class="nav__link">About</a>
@@ -24,7 +24,7 @@
       </header>
 
       <section class="intro">
-        <div class="container container--medium intro__container">
+        <div class="container container--large intro__container">
           <h1 class="intro__name">
             <span class="intro__name__line intro__name__line--top"></span>
             <span class="intro__name__word intro__name__word--firstname">Alessio</span>
@@ -32,24 +32,23 @@
             <span class="intro__name__line intro__name__line--bottom"></span>
           </h1>
           <span class="intro__role fade-in">frontend developer</span>
-
-          <pre class="intro__quote">
-            <cite class="intro__quote__text">He's the most talented developer I've ever seen.<br>A real prodigy.</cite>
-            <span class="intro__quote__author">&mdash; My mom</span>
-          </pre>
         </div>
       </section>
 
       <section>
-        <div class="container container--medium">
-          <h2 class="reveal">About</h2>
-          <div class="about__wrapper">
-            <p class="fade-in"><img src="/assets/images/about.jpg"></p>
-            <p class="fade-in">Hi, I'm Alessio Santangelo, an italian frontend developer based in Milan.<br>Currently, I'm working with folks at <a href="http://www.prima.it" target="_blank">Prima.it</a>.</p>
-          </div>
+        <div class="sentinel sentinel--section sentinel--center"></div>
+        <div class="container container--small">
+          <pre class="quote">
+            <cite class="quote__wrapper">
+              <div class="quote__text">He's the most talented I've ever seen.</div>
+              <div class="quote__text">A real prodigy.</div>
+            </cite>
+            <span class="quote__author">&mdash; My mom</span>
+          </pre>
         </div>
+        <div class="sentinel sentinel--section sentinel--out"></div>
       </section>
-
+      
       <section>
         <div class="container container--small">
           <h2 class="reveal">Works</h2>
@@ -119,7 +118,7 @@
 
     <footer class="footer">
       <div class="container container--large footer__container">
-        <p class="footer__copyright">&copy; Alessio Santangelo &mdash; 2017</p>
+        <p class="footer__copyright">&copy; Alessio Santangelo &mdash; <span class="footer__copyright__year"></span></p>
         <p class="footer__copyright">Photos from <a href="https://unsplash.com/">Unsplash</a></p>
       </div>
     </footer>

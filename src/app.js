@@ -1,11 +1,20 @@
-const AppStyles = require('./assets/scss/app.scss')
-const Utils     = require('./lib/utils.js')
-const Anime     = require('animejs').default;
+const appStyles = require('./assets/scss/app.scss')
+const utils     = require('./lib/utils.js')
+const anime     = require('animejs').default
+const charming  = require('charming')
 
-Utils.htmlTextPrepare()
+const toBeSplitted = document.querySelectorAll('.intro__role, .nav__link, .quote__text')
+
+toBeSplitted.forEach(element =>  {
+  charming(element, {
+    classPrefix: false,
+    tagName: 'span',
+    splitRegex: /(\s+)/,
+  })
+})
 
 const animateIntro = () => {
-  Anime.timeline({ loop: false })
+  anime.timeline({ loop: false })
   // Intro
   .add({
     targets:    '.intro__role span',
@@ -56,23 +65,6 @@ const animateIntro = () => {
     duration:   300,
   }, '+=300')
   .add({
-    targets: '.intro__name__word',
-    translateX: [
-      '-0.1rem',
-      '-0.2rem',
-      '-0.4rem',
-      '0.4rem',
-      '-0.4rem',
-      '0.4rem',
-      '-0.4rem',
-      '0.2rem',
-      '-0.1rem',
-      '0'
-    ],
-    easing: 'easeOutExpo',
-    duration: 600,
-  })
-  .add({
     targets:    '.intro__name__word',
     translateY:  ['4.4rem', '3.8rem', '4.2rem', '3.9rem', '4.1rem', '4rem'],
     easing:     'easeOutExpo',
@@ -80,13 +72,13 @@ const animateIntro = () => {
   }, '+=1200')
   // Menu
   .add({
-    targets:    '.nav__link span',
+    targets:    '.nav__link',
     translateX: [ 40, 0 ],
     translateZ: 0,
     opacity:    [ 0, 1 ],
     easing:     'easeOutExpo',
     duration:   1200,
-    delay: (el, i) => 500 + 30 * i
+    delay: anime.stagger(200)
   }, '+=400')
 }
 
@@ -95,8 +87,8 @@ const animateScrollProgress = () => {
   const windowHeight = window.innerHeight
   const documentHeight = document.documentElement.clientHeight
   const scrollPercent = Math.round(scrollTop / documentHeight * 100) / 100
-  console.log('scrollPercent', scrollPercent)
-  Anime.timeline({ loop: false }).add({
+
+  anime.timeline({ loop: false }).add({
     targets:  '#scrollProgress',
     easing:   'linear',
     scaleX:   scrollPercent,
@@ -104,11 +96,36 @@ const animateScrollProgress = () => {
   })
 }
 
+const animateQuote = () => {
+  anime.timeline({ loop: false })
+  .add({
+    targets: '.quote__text span',
+    opacity: [0, 1],
+    translateX: [40, 0],
+    easing: 'easeOutExpo',
+    duration: 1200,
+    delay: anime.stagger(100)
+  })
+  .add({
+    targets: '.quote__author',
+    opacity: [0, 1],
+    translateX: [100, 0],
+    easing: 'easeOutExpo',
+    duration: 1500
+  }, '+=1000')
+}
 
-Utils.onDOMReady(() => {
-
-  Utils.runObserver()
+utils.onDOMReady(() => {
 
   animateIntro()
+
+  utils.runObserver()
+
+  utils.createObserver(document.querySelectorAll('.sentinel--section'), {rootMargin: '0px 0px'}, entries => {
+    entries.forEach(entry => utils.isEntryInViewport(entry) ? animateQuote() : null)
+  })
+
   window.addEventListener('scroll', () => animateScrollProgress())
+
+  document.querySelector('.footer__copyright__year').innerHTML = (new Date()).getFullYear()
 })

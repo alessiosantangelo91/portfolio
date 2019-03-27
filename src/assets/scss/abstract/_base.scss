@@ -57,6 +57,8 @@ p {
 
 section {
   padding: calc(var(--padding) * 3) 0 var(--padding) 0;
+  min-height: 100vh;
+  position: relative;
 }
 
 pre,

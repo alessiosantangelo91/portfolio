@@ -1,0 +1,46 @@
+.quote {
+  text-align: left;
+  word-break: keep-all;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.quote__wrapper {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  &:before,
+  &:after {
+    position: absolute;
+  }
+
+  &:before {
+    top: -1rem;
+    left: -1rem;
+  }
+
+  &:after {
+    bottom: -1rem;
+    right: -1rem;
+  }
+}
+
+.quote__wrapper:before,
+.quote__wrapper:after,
+.quote__text {
+  font-size: 4.2rem;
+}
+
+.quote__text {
+
+  span {
+    display: inline-block;
+    padding-left: 1rem;
+  }
+}
+
+.quote__author {
+  font-size: 1.6rem;
+}
