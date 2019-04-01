@@ -33,11 +33,17 @@ const animateIntro = () => {
     duration:   700
   })
   .add({
-    targets:    '.intro__name__line',
-    duration:   600,
+    targets:    '.intro__name__line--top',
     easing:     'easeOutExpo',
-    translateY: (e, i, l) => (-3 + 3 * 2 * i) + 'rem'
+    translateY: '-3rem',
+    duration:   600,
   })
+  .add({
+    targets:    '.intro__name__line--bottom',
+    easing:     'easeOutExpo',
+    translateY: '3rem',
+    duration:   600,
+  }, '-=600')
   .add({
     targets:    '.intro__name__word--firstname',
     opacity:    [ 0, 1 ],
@@ -51,7 +57,7 @@ const animateIntro = () => {
     translateX: [ '-0.5rem', 0 ],
     easing:     'easeOutExpo',
     duration:   600,
-  }, '-=600')
+  }, '-=300')
   .add({
     targets:    '.intro__name__line--top',
     scaleX:     0,
@@ -69,7 +75,7 @@ const animateIntro = () => {
     translateY:  ['4.4rem', '3.8rem', '4.2rem', '3.9rem', '4.1rem', '4rem'],
     easing:     'easeOutExpo',
     duration:   600,
-  }, '+=1200')
+  }, '+=300')
   // Menu
   .add({
     targets:    '.nav__link',
