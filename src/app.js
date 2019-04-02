@@ -3,7 +3,7 @@ const utils     = require('./lib/utils.js')
 const anime     = require('animejs').default
 const charming  = require('charming')
 
-const toBeSplitted = document.querySelectorAll('.intro__role, .nav__link, .quote__text')
+const toBeSplitted = document.querySelectorAll('.intro__role, .nav__link')
 
 toBeSplitted.forEach(element =>  {
   charming(element, {
@@ -105,12 +105,11 @@ const animateScrollProgress = () => {
 const animateQuote = () => {
   anime.timeline({ loop: false })
   .add({
-    targets: '.quote__text span',
+    targets: '.quote__text',
     opacity: [0, 1],
-    translateX: [40, 0],
+    translateX: [100, 0],
     easing: 'easeOutExpo',
-    duration: 1200,
-    delay: anime.stagger(100)
+    duration: 1500,
   })
   .add({
     targets: '.quote__author',
