@@ -80,16 +80,6 @@ cite {
   padding: var(--padding) 0;
   letter-spacing: 1px;
   color: color(cite);
-
-  &:before {
-    content: "“";
-    margin-right: 10px;
-  }
-
-  &:after {
-    content: "”";
-    margin-left: 10px;
-  }
 }
 
 a {

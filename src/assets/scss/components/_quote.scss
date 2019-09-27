@@ -10,34 +10,14 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  padding: 0 2rem;
-
-  &:before,
-  &:after {
-    position: absolute;
-  }
-
-  &:before {
-    top: 0;
-    left: 0;
-  }
-
-  &:after {
-    bottom: 0;
-    right: 0;
-  }
-}
-
-.quote__wrapper:before,
-.quote__wrapper:after,
-.quote__text {
-  font-size: 3.2rem;
+  padding: 0;
 }
 
 .quote__text {
-  color: color(nav);
+  color: color(text);
   text-decoration: none;
   display: inline-block;
+  font-size: 3.2rem;
   padding: 0;
   letter-spacing: 0.2rem;
   background-image: linear-gradient(to left, darken(color(loud), 30%), color(loud));
@@ -54,5 +34,17 @@
   margin: 2rem 0;
   display: flex;
   letter-spacing: 0.2rem;
-  // font-family: var(--fontSecondaryRegular);
+  position: relative;
+  padding-left: 2.5rem;
+  
+  &:before {
+    content: '';
+    background-color: color(text);
+    height: 0.1rem;
+    width: 2rem;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
 }

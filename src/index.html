@@ -1,127 +1,112 @@
 <html>
-  <head>
-    <link href="/assets/icomoon/style.css" rel="stylesheet" />
-  </head>
-  <body>
-    <main id="main">
-      <header>
-        <nav class="nav">
-          <div class="progress" id="scrollProgress"></div>
-          <div class="container container--large">
-            <ul class="nav__list">
-              <li class="nav__item">
-                <a href="#" class="nav__link">About</a>
-              </li>
-              <li class="nav__item">
-                <a href="#" class="nav__link">Contacts</a>
-              </li>
-              <li class="nav__item">
-                <a href="#" class="nav__link">C.V.</a>
-              </li>
-            </ul>
-          </div>
-        </nav>
-      </header>
 
-      <section class="intro">
-        <div class="container container--large intro__container">
-          <h1 class="intro__name">
-            <span class="intro__name__line intro__name__line--top"></span>
-            <span class="intro__name__word intro__name__word--firstname">Alessio</span>
-            <span class="intro__name__word intro__name__word--lastname">Santangelo</span>
-            <span class="intro__name__line intro__name__line--bottom"></span>
-          </h1>
-          <span class="intro__role fade-in">frontend developer</span>
+<head>
+  <link href="/assets/icomoon/style.css" rel="stylesheet" />
+</head>
+
+<body>
+  <main id="main">
+    <header>
+      <nav class="nav">
+        <div class="progress" id="scrollProgress"></div>
+        <div class="container container--large">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a href="#" class="nav__link">About</a>
+            </li>
+            <li class="nav__item">
+              <a href="#" class="nav__link">C.V.</a>
+            </li>
+          </ul>
         </div>
-      </section>
+      </nav>
+    </header>
 
-      <section>
-        <div class="sentinel sentinel--section sentinel--center"></div>
-        <div class="container container--small">
-          <pre class="quote">
+    <section class="intro">
+      <div class="container container--large intro__container">
+        <h1 class="intro__name">
+          <span class="intro__name__line intro__name__line--top"></span>
+          <span class="intro__name__word intro__name__word--firstname" id="jsIntroFirstname"></span>
+          <span class="intro__name__word intro__name__word--lastname" id="jsIntroLastname"></span>
+          <span class="intro__name__line intro__name__line--bottom"></span>
+        </h1>
+        <span class="intro__role" id="jsIntroRole"></span>
+      </div>
+    </section>
+
+    <section>
+      <div class="sentinel sentinel--section sentinel--center"></div>
+      <div class="container container--small">
+        <pre class="quote">
             <cite class="quote__wrapper">
               <div class="quote__text">He's the most talented I've ever seen. A real prodigy.</div>
             </cite>
-            <span class="quote__author">&mdash; My mom</span>
+            <span class="quote__author">My mom</span>
           </pre>
-        </div>
-        <div class="sentinel sentinel--section sentinel--out"></div>
-      </section>
-
-      <section>
-        <div class="container container--small">
-          <h2 class="reveal">Works</h2>
-        </div>
-
-        <figure class="photo fade-in">
-          <div class="container container--medium">
-            <div class="photo__clip">
-              <h4 class="photo__clip__title">Sergio Tacchini</h4>
-              <img src="/assets/images/sergio_tacchini.jpg" class="photo__img">
-            </div>
-            <h4 class="photo__title">Sergio Tacchini</h4>
-            <img src="/assets/images/arrow-right.svg" class="photo__action">
-          </div>
-        </figure>
-
-        <figure class="photo fade-in">
-          <div class="container container--medium">
-            <div class="photo__clip">
-              <h4 class="photo__clip__title">Edilnicola</h4>
-              <img src="/assets/images/edilnicola.jpg" class="photo__img">
-            </div>
-            <h4 class="photo__title">Edilnicola</h4>
-            <img src="/assets/images/arrow-right.svg" class="photo__action">
-          </div>
-        </figure>
-
-        <figure class="photo fade-in">
-          <div class="container container--medium">
-            <div class="photo__clip">
-              <h4 class="photo__clip__title">Aperiway</h4>
-              <img src="/assets/images/aperiway.jpg" class="photo__img">
-            </div>
-            <h4 class="photo__title">Aperiway</h4>
-            <img src="/assets/images/arrow-right.svg" class="photo__action">
-          </div>
-        </figure>
-
-        <figure class="photo fade-in">
-          <div class="container container--medium">
-            <div class="photo__clip">
-              <h4 class="photo__clip__title">Ricetta</h4>
-              <img src="/assets/images/ricetta.jpg" class="photo__img">
-            </div>
-            <h4 class="photo__title">Ricetta</h4>
-            <img src="/assets/images/arrow-right.svg" class="photo__action">
-          </div>
-        </figure>
-
-      </section>
-
-      <section>
-        <div class="container container--small">
-          <h2 class="reveal">Contacts</h2>
-          <form class="form">
-            <label class="form__label fade-in" for="email">Email:</label>
-            <input class="form__input fade-in" type="email" placeholder="Enter your email address" id="email" name="email">
-            <label class="form__label fade-in" for="name">Name:</label>
-            <input class="form__input fade-in" type="text" placeholder="Enter your name" id="name" name="name">
-            <label class="form__label fade-in" for="message">Message:</label>
-            <textarea class="form__textarea fade-in" placeholder="Enter your message for me" id="message" name="message"></textarea>
-          </form>
-        </div>
-      </section>
-
-    </main>
-
-    <footer class="footer">
-      <div class="container container--large footer__container">
-        <p class="footer__copyright">&copy; Alessio Santangelo &mdash; <span class="footer__copyright__year"></span></p>
-        <p class="footer__copyright">Photos from <a href="https://unsplash.com/">Unsplash</a></p>
       </div>
-    </footer>
+      <div class="sentinel sentinel--section sentinel--out"></div>
+    </section>
 
-    <script src="/assets/app.bundle.js"></script>
-  </body>
+    <section>
+      <div class="container container--small">
+        <h2 class="reveal">Works</h2>
+      </div>
+
+      <figure class="photo fade-in">
+        <div class="container container--medium">
+          <div class="photo__clip">
+            <h4 class="photo__clip__title">Sergio Tacchini</h4>
+            <img src="/assets/images/sergio_tacchini.jpg" class="photo__img">
+          </div>
+          <h4 class="photo__title">Sergio Tacchini</h4>
+          <img src="/assets/images/arrow-right.svg" class="photo__action">
+        </div>
+      </figure>
+
+      <figure class="photo fade-in">
+        <div class="container container--medium">
+          <div class="photo__clip">
+            <h4 class="photo__clip__title">Edilnicola</h4>
+            <img src="/assets/images/edilnicola.jpg" class="photo__img">
+          </div>
+          <h4 class="photo__title">Edilnicola</h4>
+          <img src="/assets/images/arrow-right.svg" class="photo__action">
+        </div>
+      </figure>
+
+      <figure class="photo fade-in">
+        <div class="container container--medium">
+          <div class="photo__clip">
+            <h4 class="photo__clip__title">Aperiway</h4>
+            <img src="/assets/images/aperiway.jpg" class="photo__img">
+          </div>
+          <h4 class="photo__title">Aperiway</h4>
+          <img src="/assets/images/arrow-right.svg" class="photo__action">
+        </div>
+      </figure>
+
+      <figure class="photo fade-in">
+        <div class="container container--medium">
+          <div class="photo__clip">
+            <h4 class="photo__clip__title">Ricetta</h4>
+            <img src="/assets/images/ricetta.jpg" class="photo__img">
+          </div>
+          <h4 class="photo__title">Ricetta</h4>
+          <img src="/assets/images/arrow-right.svg" class="photo__action">
+        </div>
+      </figure>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container container--large footer__container">
+      <p class="footer__copyright">&copy; Alessio Santangelo &mdash; <span class="footer__copyright__year"></span></p>
+      <p class="footer__copyright">Photos from <a href="https://unsplash.com/">Unsplash</a></p>
+    </div>
+  </footer>
+
+  <script src="/assets/app.bundle.js"></script>
+</body>
+
 </html>
