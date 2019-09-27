@@ -2,7 +2,6 @@
 @mixin fadeIn() {
   transform: translate3d(0, 60px, 0);
   opacity: 0;
-
   transition: transform 0.3s ease-in-out, opacity 0.3s;
 
   &.is-animated {
