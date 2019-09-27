@@ -170,16 +170,18 @@ class Portfolio {
   }
 
   runObserver() {
+    let alreadyAnimated = false
     utils.createObserver(
       document.querySelectorAll('.sentinel--section'), {
         rootMargin: '0px 0px'
       },
       entries => {
-        entries.forEach(entry =>
-          utils.isEntryInViewport(entry)
-            ? this.animateQuote()
-            : null
-        )
+        entries.forEach(entry => {
+          if (utils.isEntryInViewport(entry) && !alreadyAnimated) {
+            this.animateQuote()
+            alreadyAnimated = true
+          }
+        })
       }
     )
   }
