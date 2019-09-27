@@ -1,7 +1,7 @@
-const appStyles = require('./assets/scss/app.scss')
-const utils = require('./lib/utils.js')
-const anime = require('animejs').default
-const charming = require('charming')
+require('./assets/scss/app.scss')
+
+import { onDOMReady, createObserver, isEntryInViewport } from './lib/utils.js'
+import anime from 'animejs'
 
 class Portfolio {
   config = {
@@ -21,6 +21,7 @@ class Portfolio {
       introFirstname: document.getElementById('jsIntroFirstname'),
       introLastname: document.getElementById('jsIntroLastname'),
       introRole: document.getElementById('jsIntroRole'),
+      footerCopyrightYear: document.getElementById('jsFooterCopyrightYear'),
     }
 
     this.appendHtmlString(this.config.introFirstnameText, this.dom.introFirstname)
@@ -32,6 +33,7 @@ class Portfolio {
     this.animateScrollProgress()
     this.runObserver()
     this.setCopyright()
+    this.attachEvents()
   }
 
   appendHtmlString(str, element) {
@@ -171,13 +173,13 @@ class Portfolio {
 
   runObserver() {
     let alreadyAnimated = false
-    utils.createObserver(
+    createObserver(
       document.querySelectorAll('.sentinel--section'), {
         rootMargin: '0px 0px'
       },
       entries => {
         entries.forEach(entry => {
-          if (utils.isEntryInViewport(entry) && !alreadyAnimated) {
+          if (isEntryInViewport(entry) && !alreadyAnimated) {
             this.animateQuote()
             alreadyAnimated = true
           }
@@ -187,7 +189,7 @@ class Portfolio {
   }
 
   setCopyright() {
-    document.querySelector('.footer__copyright__year').innerHTML = (new Date()).getFullYear()
+    this.dom.footerCopyrightYear.innerHTML = (new Date()).getFullYear()
   }
 
   attachEvents() {
@@ -195,6 +197,6 @@ class Portfolio {
   }
 }
 
-utils.onDOMReady(() => {
+onDOMReady(() => {
   new Portfolio()
 })
